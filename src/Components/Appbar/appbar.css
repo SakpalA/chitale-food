@@ -1,0 +1,168 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul{
+    list-style-type: none;
+}
+
+.nav-ul li{
+    margin: 0 12px;
+    transition: all 0.3s;
+}
+
+.list-nav-product{
+    transition: all 0.3s;
+}
+
+.navbar{
+    background-color: #fff;
+    padding: 0 48px;
+}
+
+/* Vertical Navbar */
+
+.menu{
+    display: none;
+}
+
+.offcanvas-body{
+    padding: 16px 0;
+}
+
+.sub-menu{
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.sun-menu.open{
+    max-height: 100px;
+    transition: max-height 0.3s ease-in;
+}
+
+.main-ul{
+    border-top: 1px solid #33333332;
+}
+
+/* Top Navbar */
+.topnav{
+    padding: 6px 70px;
+}
+
+.ticons, .iuser{
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.user-icon{
+    position: relative;
+}
+
+.user-list{
+    width: 200px;
+    padding: 20px;
+    border-radius: 5px;
+    height: fit-content;
+    position: absolute;
+    bottom: -650%;
+    right: 10%;
+    z-index: 10;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    display: none;
+    transition: all 0.3s;
+}
+
+.logout-list{
+    bottom: -80px;
+}
+
+.user-icon:hover .user-list{
+    display: block;
+}
+
+.user-list ul li{
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+
+/* Product Hover */
+.product{
+    position: relative;
+}
+
+.nav-product{
+    position: absolute;
+    left: -650%;
+    bottom: -1400%;
+    z-index: 100;
+    background-color: #fff;
+    display: none;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-radius: 6px;
+}
+
+
+.product:hover .nav-product{
+    display: block;
+}
+
+.hover-name{
+    transition: all 0.3s;
+}
+.product-hover-img{
+    transition: all 0.3s;
+}
+
+.product-hover-img:hover{
+    transform: scale(1.1);
+}
+
+
+/* Media Query */
+
+@media (max-width: 1030px){
+    .nav-ul li{
+        margin: 0 10px;
+    }
+
+    .topnav{
+        padding: 6px 10px;
+    }
+}
+
+/* Tablet Version */
+@media (max-width: 769px){
+    .nav-ul{
+        display: none;
+    }
+
+    .menu{
+        display: block;
+    }
+
+    .topnav marquee{
+        display: none;
+    }
+
+    .topnav{
+        padding: 6px 50px;
+        display: flex;
+        justify-content: end;
+    }
+
+    .ticons{
+        margin: 0 10px;
+    }
+    
+}
+
+/* Mobile */
+@media screen  and (min-width: 0px) and (max-width: 430px){
+    .navbar{
+        padding: 16px 10px;
+    }
+}

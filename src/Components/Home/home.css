@@ -1,0 +1,199 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.carousel{
+    width: 100%;
+    height: 80vh;
+}
+
+.carousel-img{
+    width: 100%;
+    height: 80vh;
+}
+
+.carousel-indicators{
+    display: none;
+}
+
+
+/* Image Section */
+.img-sec{
+    transition: all 0.3s;
+}
+
+
+/* Testimonial */
+.testi-div{
+    padding: 40px;
+}
+
+.testi-btns{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.testi-btns button{
+    width: 16px;
+    height: 16px;
+    margin: 0 1px;
+    border-radius: 50%;
+    border: 2px solid #ed2938;
+}
+
+.show-btn{
+    background-color: #ed2938;
+}
+
+
+/* Image slider */
+.slider-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+}
+
+.slider {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  height: 200px;
+}
+
+.slider-image {
+  min-width: 90px; 
+  transition: transform 0.5s ease-in-out;
+}
+
+.slider-button {
+  margin: 0 10px;
+  padding: 10px;
+}
+
+/* Categories */
+.home-cat-img-div{
+    position: relative;
+    overflow: hidden;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.home-cat-content{
+    position: absolute;
+    left: 10%;
+    top: 30%;
+}
+
+.home-cat-img{
+    width: full;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.home-cat-img:hover{
+    transform: scale(1.1);
+}
+
+.cat-shop{
+    transition: all 0.3s;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.cat-shop:hover{
+    color: #ed2938;
+    transform: translateX(10px);
+}
+
+
+
+
+
+
+
+/* Media Query */
+@media (max-width: 1440px){
+    .testi-div{
+        padding: 28px;
+    }
+}
+
+@media (max-width: 1042px){
+    .testi-sec{
+        padding: 50px 30px;
+    }
+
+    .testi-div{
+        width: 100%;
+    }
+}
+
+@media (max-width: 769px){
+    .carousel{
+        height: 70vh;
+    }
+
+    .carousel-img{
+        height: 70vh;
+    }
+
+    .img-sec{
+        width: 100%;
+        height: 100%;
+    }
+
+    .img-sec-div{
+        margin: 10px 0;
+    }
+
+    .store-img{
+        width: 555px;
+    }
+
+    .store-img-col{
+        margin-bottom: 20px;
+    }
+
+    .testi-div{
+       height: 17rem; 
+    }
+}
+
+@media (max-width: 428px){
+    .testi-sec{
+        padding: 50px 10px;
+    }
+
+    .testi-div{
+        padding: 15px;
+        height: 279px;
+    }
+
+}
+
+@media (max-width: 377px){
+    .testi-div{
+        height: 305px;
+    }
+}
+
+@media (max-width: 320px){
+    .testi-div{
+        height: 385px;
+    }
+
+}
+
+@media screen  and (min-width: 0px) and (max-width: 430px){
+    .carousel{
+        height: 50vh;
+    }
+
+    .carousel-img{
+        height: 50vh;
+    }
+}

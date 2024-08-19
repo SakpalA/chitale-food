@@ -1,0 +1,43 @@
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+.about-div{
+    width: 100%;
+    padding: 20px 60px;
+}
+
+.about-img{
+    width: 470px;
+}
+
+
+
+/* Media Query */
+@media (max-width: 1042px){
+    .about-div{
+        padding: 20px 30px;
+    }
+}
+
+
+@media (max-width: 769px){
+    .about-div{
+        padding: 20px;
+    }
+
+    .about-img{
+        margin-bottom: 40px;
+    }
+
+    .about-img-div{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .part-two{
+        margin-left: 0;
+    }
+}
