@@ -7,6 +7,7 @@ import { SlHandbag } from "react-icons/sl";
 import { FaEye } from "react-icons/fa";
 import { FaRegHeart } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa6";
+import './wishlist.css';
 
 const WishlistComp = () => {
     const { handleModalOpen } = useContext(ProductContext)
@@ -15,11 +16,11 @@ const WishlistComp = () => {
         <>
             {
                 wishlist.length === 0 ? (
-                    <p className='text-center my-20'>Wishlist is empty.</p>
+                    <p className='text-2xl text-center my-20'>Wishlist is empty.</p>
                 ) : (
-                    <Container>
+                    <Container className='my-5'>
                         <Row>
-                            <h2>Wishlist</h2>
+                            <h2 className='text-3xl text-center font-bold my-3'>Wishlist</h2>
                             {wishlist.map(product => (
                                 <Col md={3} key={product.id}>
                                     <div style={{ marginBottom: '20px' }} className='product-box'>
@@ -54,14 +55,15 @@ const WishlistComp = () => {
                                 </Col>
                             ))}
                         </Row>
-                        <Row>
+                        <div className='flex justify-center align-center'>
                             <button
-                                className=''
+                                className='wish-btn'
                                 onClick={clearWishlist}>Clear Wishlist</button>
-                            
+
                             <button
-                            onClick={addAllWishlistToCart}>Add to cart</button>
-                        </Row>
+                                className='wish-btn'
+                                onClick={addAllWishlistToCart}>Add To Cart</button>
+                        </div>
                     </Container>
                 )
             }

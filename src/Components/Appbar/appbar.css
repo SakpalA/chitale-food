@@ -135,7 +135,7 @@ ul{
 }
 
 /* Tablet Version */
-@media (max-width: 769px){
+@media (max-width: 918px){
     .nav-ul{
         display: none;
     }
