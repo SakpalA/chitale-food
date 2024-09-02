@@ -85,6 +85,19 @@
     left: 0;
 }
 
+.sort{
+    width: 100%;
+}
+
+.sort-label{
+    width: 15%;
+    color: #888888;
+}
+
+#food-order{
+    width: 85%;
+    padding: 6px;
+}
 
 /* Modal */
 .prod-modal-body{

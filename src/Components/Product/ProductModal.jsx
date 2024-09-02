@@ -23,26 +23,28 @@ const ProductModal = ({ show, onHide, product }) => {
       size='lg'
       centered >
       <Modal.Header closeButton>
-        <Modal.Title>{product.title}</Modal.Title>
+        <Modal.Title className='font-bold'>{product.title}</Modal.Title>
       </Modal.Header>
-      <Modal.Body className='pro-modal-body'>
+      <Modal.Body className='pro-modal-body flex '>
         <img
           src={product.images[product.images.length - 1]}
           alt={product.title}
           className='w-72' />
-        <div className="modal-text">
-          <p>{product.small_description}</p>
-          <h4>Price:  Rs.{product.price}.00</h4>
-          <p>{product.full_description}</p>
-        </div>
         <div>
-          <button onClick={decrementQuantity}>-</button>
-          <span>{quantity}</span>
-          <button onClick={incrementQuantity}>+</button>
+          <div className="modal-text">
+            <p className='text-[#888888]'>{product.small_description}</p>
+            <h4 className='text-2xl mb-2 font-bold'>Price:  Rs.{product.price}</h4>
+            <p>{product.full_description}</p>
+          </div>
+          <div className='my-2'>
+            <button className='wish-btn' onClick={decrementQuantity}>-</button>
+            <span>{quantity}</span>
+            <button className='wish-btn' onClick={incrementQuantity}>+</button>
+          </div>
+          <button
+            className='bg-[#ed2938] text-[#ffffff] py-2 px-3 rounded-md'
+            onClick={() => addToCart(product, quantity)}>Add to Cart</button>
         </div>
-        <button
-          className='bg-[#ed2938] text-[#ffffff]'
-          onClick={() => addToCart(product, quantity)}>Add to Cart</button>
       </Modal.Body>
     </Modal>
   )

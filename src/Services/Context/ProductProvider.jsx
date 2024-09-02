@@ -1,5 +1,5 @@
-import axios from 'axios'
-import React, { createContext, useEffect, useState } from 'react'
+import axios from 'axios';
+import React, { createContext, useEffect, useState } from 'react';
 
 export const ProductContext = createContext()
 const ProductProvider = ({ children }) => {
@@ -29,17 +29,20 @@ const ProductProvider = ({ children }) => {
   // Grid View
   const [isGridView, setIsGridView] = useState(true)
 
+  // Sort Type
+  const [sortType, setSortType] = useState('')
+
   // Fetch all categories
   useEffect(() => {
     axios.get("https://appy.trycatchtech.com/v3/chitale_foods/category_list")
       .then(res => {
         // console.log("response", res)
-        setCategories(res.data)
-        setLoading(false)
+        setCategories(res.data);
+        setLoading(false);
       })
       .catch(err => {
-        console.log("Error fetching product data:", err)
-        setLoading(false)
+        console.log("Error fetching product data:", err);
+        setLoading(false);
       })
   }, [])
 
@@ -49,24 +52,46 @@ const ProductProvider = ({ children }) => {
     axios.get("https://appy.trycatchtech.com/v3/chitale_foods/product_list?category_id=1")
       .then(res => {
         // console.log("response", res)
-        setProducts(res.data)
-        setLoading(false)
+        setProducts(res.data);
+        setFilteredCategories(res.data);
+        setLoading(false);
       })
       .catch(err => {
-        console.log("Error fetching product data: ", err)
-        setLoading(false)
+        console.log("Error fetching product data: ", err);
+        setLoading(false);
       })
   }, [])
 
-
-  // Filter categories based on selected categories
-  useEffect(() => {
-    if (products && selectedCategories.length === 0) {
-      setFilteredCategories(products);
-    } else if (products) {
-      setFilteredCategories(products.filter(cat => selectedCategories.includes(cat.id)));
+  // Sort
+  useEffect(()=>{
+    if(sortType){
+      const sorted = [...filteredCategories];
+      if(sortType === 'priceHighToLow'){
+        sorted.sort((a,b) => b.price - a.price)
+      }else if(sortType === 'priceLowToHigh'){
+        sorted.sort((a,b) => a.price - b.price)
+      }else if(sortType === 'alphabeticallyAZ'){
+        sorted.sort((a,b) => a.title.localeCompare(b.title))
+      }else if(sortType === 'alphabeticallyZA'){
+        sorted.sort((a,b) => b.title.localeCompare(a.title))
+      }
+      setFilteredCategories(sorted)
     }
-  }, [selectedCategories, products]);
+  },[sortType])
+
+  const handleSortChange = (e) => {
+    setSortType(e.target.value)
+  }
+
+
+    // Filter categories based on selected categories
+    useEffect(() => {
+      if (products && selectedCategories.length === 0) {
+        setFilteredCategories(products);
+      } else if (products) {
+        setFilteredCategories(products.filter(cat => selectedCategories.includes(cat.id)));
+      }
+    }, [selectedCategories, products]);
 
   const handleCheckboxChange = (id) => {
     if (selectedCategories.includes(id)) {
@@ -111,7 +136,8 @@ const ProductProvider = ({ children }) => {
     loading,
     isGridView,
     switchToGridView,
-    switchToListView
+    switchToListView,
+    handleSortChange
   }
   return (
     <ProductContext.Provider value={contextValue}>
